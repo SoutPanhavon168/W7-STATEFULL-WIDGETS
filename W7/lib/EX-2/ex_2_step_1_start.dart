@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: const Text("Favorite cards"),
-        ),
-        body: Column(
-          children: [
-            FavoriteCard(),
-            FavoriteCard(),
-            FavoriteCard(),
-          ],
-        ),
+void main() => runApp(
+  MaterialApp(
+    home: Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: const Text("Favorite cards"),
       ),
-    ));
+      body: Column(children: [FavoriteCard(), FavoriteCard(), FavoriteCard()]),
+    ),
+  ),
+);
 
 class FavoriteCard extends StatefulWidget {
-  const FavoriteCard({
-    super.key,
-  });
+  const FavoriteCard({super.key});
 
   @override
   State<FavoriteCard> createState() => _FavoriteCardState();
@@ -43,9 +37,7 @@ class _FavoriteCardState extends State<FavoriteCard> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(width: .5, color: Colors.grey),
-        ),
+        border: Border(bottom: BorderSide(width: .5, color: Colors.grey)),
       ),
       padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
       child: Row(
@@ -59,19 +51,19 @@ class _FavoriteCardState extends State<FavoriteCard> {
                 Text(
                   'title',
                   style: TextStyle(
-                      color: Colors.blue, fontWeight: FontWeight.w800),
+                    color: Colors.blue,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
                 SizedBox(height: 10.0),
-                Text('description')
+                Text('description'),
               ],
             ),
           ),
           IconButton(
-              onPressed: () => {toggleFavorite()},
-              icon: Icon(
-                Icons.favorite,
-                color: iconColor(),
-              ))
+            onPressed: () => {toggleFavorite()},
+            icon: Icon(Icons.favorite, color: iconColor()),
+          ),
         ],
       ),
     );

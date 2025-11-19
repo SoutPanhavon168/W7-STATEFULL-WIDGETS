@@ -13,22 +13,22 @@ enum SelectionState {
   const SelectionState(this.label, this.shade, this.textColor);
 }
 
-void main() => runApp(MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Custom buttons"),
-        ),
-        body: const Center(
-          child: Column(
-            children: [
-              SelectionButton(),
-              SizedBox(height: 20),
-              SelectionButton(),
-            ],
-          ) 
+void main() => runApp(
+  MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: const Text("Custom buttons")),
+      body: const Center(
+        child: Column(
+          children: [
+            SelectionButton(),
+            SizedBox(height: 20),
+            SelectionButton(),
+          ],
         ),
       ),
-    ));
+    ),
+  ),
+);
 
 class SelectionButton extends StatefulWidget {
   const SelectionButton({super.key});
@@ -55,11 +55,12 @@ class _SelectionButtonState extends State<SelectionButton> {
       height: 100,
       child: ElevatedButton(
         onPressed: toggleSelection,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: _selectionState.color,
-        ),
+        style: ElevatedButton.styleFrom(backgroundColor: _selectionState.color),
         child: Center(
-          child: Text(_selectionState.label, style: TextStyle(color: _selectionState.textColor),),
+          child: Text(
+            _selectionState.label,
+            style: TextStyle(color: _selectionState.textColor),
+          ),
         ),
       ),
     );

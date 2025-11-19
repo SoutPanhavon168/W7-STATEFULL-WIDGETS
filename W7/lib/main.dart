@@ -8,38 +8,36 @@ List<String> images = [
   "assets/w4-s2/man.jpg",
 ];
 
-void main() => runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 0, 137, 14),
-        appBar: AppBar(
-          backgroundColor: Colors.green[400],
-          title: const Text('Score Bars'),  
-        ),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: ListView(
-              children: const [
-                ScoreBarCard(title: 'Flutter Score', maxScore: 10),
-                ScoreBarCard(title: 'Dart Score', maxScore: 20),
-                ScoreBarCard(title: 'Python Score', maxScore: 15),
-              ],
-            ),
+void main() => runApp(
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(
+      backgroundColor: const Color.fromARGB(255, 0, 137, 14),
+      appBar: AppBar(
+        backgroundColor: Colors.green[400],
+        title: const Text('Score Bars'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ListView(
+            children: const [
+              ScoreBarCard(title: 'Flutter Score', maxScore: 10),
+              ScoreBarCard(title: 'Dart Score', maxScore: 20),
+              ScoreBarCard(title: 'Python Score', maxScore: 15),
+            ],
           ),
-        )
+        ),
+      ),
     ),
   ),
 );
+
 class ScoreBarCard extends StatefulWidget {
   final String title;
   final int maxScore;
 
-  const ScoreBarCard({
-    super.key,
-    required this.title,
-    this.maxScore = 10,
-  });
+  const ScoreBarCard({super.key, required this.title, this.maxScore = 10});
 
   @override
   State<ScoreBarCard> createState() => _ScoreBarCardState();
@@ -68,7 +66,10 @@ class _ScoreBarCardState extends State<ScoreBarCard> {
         padding: const EdgeInsets.all(32),
         child: Column(
           children: [
-            Text(widget.title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Text(
+              widget.title,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +81,10 @@ class _ScoreBarCardState extends State<ScoreBarCard> {
                 const SizedBox(width: 20),
                 Text(
                   '$selectedScore / ${widget.maxScore}',
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(width: 20),
                 ElevatedButton(
@@ -90,7 +94,11 @@ class _ScoreBarCardState extends State<ScoreBarCard> {
               ],
             ),
             const SizedBox(height: 10),
-            ProgressBar(selectedScore: selectedScore, maxScore: widget.maxScore, height: 40),
+            ProgressBar(
+              selectedScore: selectedScore,
+              maxScore: widget.maxScore,
+              height: 40,
+            ),
             const SizedBox(height: 10),
           ],
         ),
